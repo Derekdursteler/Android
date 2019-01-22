@@ -13,6 +13,7 @@ public class CheatActivity extends AppCompatActivity {
     private static final String EXTRA_ANSWER_IS_TRUE = "com.example.ddursteler1.geoquiz.answer_is_true";
     private static final String EXTRA_ANSWER_SHOWN = "com.example.ddursteler1.geoquiz.answer_shown";
     private boolean mAnswerIsTrue;
+
     private TextView mAnswerTextView;
     private Button mShowAnswerButton;
 
