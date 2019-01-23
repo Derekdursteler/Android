@@ -83,6 +83,7 @@ public class QuizActivity extends AppCompatActivity {
                 if (mCurrentIndex < 0 ) {
                     mCurrentIndex = mQuestionBank.length - 1;
                 }
+                mIsCheater = false;
                 updateQuestion();
             }
         });
