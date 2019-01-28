@@ -30,6 +30,7 @@
         android:layout_width="131dp"
         android:layout_height="50dp"
         android:inputType="number"
+        android:imeOptions="actionSend"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
