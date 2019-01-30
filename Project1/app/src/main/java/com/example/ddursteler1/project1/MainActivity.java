@@ -1,5 +1,6 @@
 package com.example.ddursteler1.project1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText mInputNumber;
     private Button mRoll;
     private Button mRollPicture;
+    private Button mScoreButton;
     private int mGuessNumber = 0;
     private int mRandomNumber = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("mGuessNumber", Integer.toString(mGuessNumber));
                 Log.d("mRandomNumber", Integer.toString(mRandomNumber));
                 checkAnswer();
+            }
+        });
+
+        mScoreButton = findViewById(R.id.score_button);
+        mScoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // go to score layout + activity
+                Intent intent = ScoreActivity.newIntent(MainActivity.this, mGuessNumber);
+
+                startActivity(intent);
             }
         });
     }
