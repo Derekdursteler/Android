@@ -12,11 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="Guessed Correct" />
+        android:text="Guesses" />
 
     <TextView
+        android:id="@+id/guessed_numbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="Actual Number" />
+        android:text="No guesses yet"
+       />
 </LinearLayout>
