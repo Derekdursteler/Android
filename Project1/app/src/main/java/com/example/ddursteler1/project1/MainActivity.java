@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mScoreButton;
     private int mGuessNumber = 0;
     private int mRandomNumber = 0;
+    List<Integer> guessList = new ArrayList<>();
+    List<Integer> rolledList = new ArrayList<>();
 
 
     @Override

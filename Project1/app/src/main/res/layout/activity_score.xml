@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
+
         <TextView
             android:id="@+id/guesses"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="24dp"
             android:text="Guesses:" />
 
@@ -45,7 +46,9 @@
             android:id="@+id/guessed_numbers"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="75dp"
             android:padding="24dp"
+            android:paddingStart="75dp"
             android:text="0" />
 
         <TextView
@@ -57,10 +60,12 @@
 
         <TextView
             android:id="@+id/correct"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginEnd="30dp"
+            android:gravity="right"
             android:padding="24dp"
-            android:text="@string/correct_answer"/>
+            android:text="@string/correct_answer" />
     </LinearLayout>
 
 </LinearLayout>

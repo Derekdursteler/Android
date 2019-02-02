@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ScoreActivity extends AppCompatActivity {
 
     private static final String GUESSED_NUMBER = "com.example.ddursteler1.project1.guessed_number";
@@ -18,6 +21,7 @@ public class ScoreActivity extends AppCompatActivity {
     private int mRolledNumber;
     private TextView mGuesses;
     private TextView mRolls;
+    private TextView mCorrect;
 
 
     public static Intent newIntent(Context packageContext, int mGuessNumber, int mRolledNumber) {
@@ -44,6 +48,16 @@ public class ScoreActivity extends AppCompatActivity {
         mRolls = findViewById(R.id.rolled_numbers);
         mRolls.setText(Integer.toString(mRolledNumber));
 
+        mCorrect = findViewById(R.id.correct);
+        checkAnswer();
 
+
+    }
+    private void checkAnswer( ) {
+        if (mGuessedNumber == mRolledNumber ) {
+            mCorrect.setText("Correct!");
+        } else {
+            mCorrect.setText("Incorrect!");
+        }
     }
 }
