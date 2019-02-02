@@ -14,21 +14,20 @@ import java.util.List;
 
 public class ScoreActivity extends AppCompatActivity {
 
-    private static final String GUESSED_NUMBER = "com.example.ddursteler1.project1.guessed_number";
-    private static final String ROLLED_NUMBER = "com.example.ddursteler1.project1.rolled_number";
+    private static final String GUESSED_LIST = "com.example.ddursteler1.project1.guessed_number";
+    private static final String ROLLED_LIST = "com.example.ddursteler1.project1.rolled_number";
 
-    private int mGuessedNumber;
-    private int mRolledNumber;
+    private int mGuessList;
+    private int mRollList;
     private TextView mGuesses;
     private TextView mRolls;
     private TextView mCorrect;
 
 
-    public static Intent newIntent(Context packageContext, int mGuessNumber, int mRolledNumber) {
+    public static Intent newIntent(Context packageContext, int mGuessList, int mRollList) {
         Intent intent = new Intent(packageContext, ScoreActivity.class);
-        intent.putExtra(GUESSED_NUMBER, mGuessNumber);
-        intent.putExtra(ROLLED_NUMBER, mRolledNumber);
-        Log.d("mGuessNumber", Integer.toString(mGuessNumber));
+        intent.putExtra(GUESSED_LIST, mGuessList);
+        intent.putExtra(ROLLED_LIST, mRollList);
         return intent;
     }
 
@@ -37,16 +36,15 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        mGuessedNumber = getIntent().getIntExtra(GUESSED_NUMBER, 0);
-        Log.d("Guessed number", Integer.toString(mGuessedNumber));
+        mGuessList = getIntent().getIntExtra(GUESSED_LIST, 0);
 
         mGuesses = findViewById(R.id.guessed_numbers);
-        mGuesses.setText(Integer.toString(mGuessedNumber));
+        mGuesses.setText(Integer.toString(mGuessList));
 
-        mRolledNumber = getIntent().getIntExtra(ROLLED_NUMBER, 0);
+        mRollList = getIntent().getIntExtra(ROLLED_LIST, 0);
 
         mRolls = findViewById(R.id.rolled_numbers);
-        mRolls.setText(Integer.toString(mRolledNumber));
+        mRolls.setText(Integer.toString(mRollList));
 
         mCorrect = findViewById(R.id.correct);
         checkAnswer();
@@ -54,7 +52,7 @@ public class ScoreActivity extends AppCompatActivity {
 
     }
     private void checkAnswer( ) {
-        if (mGuessedNumber == mRolledNumber ) {
+        if (mGuessList == mRollList ) {
             mCorrect.setText("Correct!");
         } else {
             mCorrect.setText("Incorrect!");

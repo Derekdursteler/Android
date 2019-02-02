@@ -43,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Random rand = new Random();
                 mRandomNumber = rand.nextInt(6) + 1;
-                Log.d("Random", Integer.toString(mRandomNumber));
                 mRoll.setText("You rolled " + Integer.toString(mRandomNumber));
                 checkAnswer();
+                rolledList.add(mRandomNumber);
+
+                Log.d("EditText", rolledList.toString());
             }
         });
 
@@ -56,10 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
                     mGuessNumber = Integer.parseInt(mInputNumber.getText().toString());
-                    Log.d("EditText", mInputNumber.getText().toString());
                     handled = true;
                     mInputNumber.getText().clear();
                     mGuessText.setText("You guessed " + Integer.toString(mGuessNumber));
+                    guessList.add(mGuessNumber);
+
+                    Log.d("EditText", guessList.toString());
                 }
                 return handled;
             }
