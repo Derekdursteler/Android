@@ -18,6 +18,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private EditText mInputNumber;
+    private TextView mGuessText;
     private Button mRoll;
     private Button mRollPicture;
     private Button mScoreButton;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mGuessText = findViewById(R.id.guess_text);
+
         mRoll = findViewById(R.id.roll);
         mRoll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 Random rand = new Random();
                 mRandomNumber = rand.nextInt(6) + 1;
                 Log.d("Random", Integer.toString(mRandomNumber));
+                mRoll.setText("You rolled " + Integer.toString(mRandomNumber));
+                checkAnswer();
             }
         });
 
@@ -50,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("EditText", mInputNumber.getText().toString());
                     handled = true;
                     mInputNumber.getText().clear();
+                    mGuessText.setText("You guessed " + Integer.toString(mGuessNumber));
                 }
                 return handled;
             }
@@ -58,9 +64,8 @@ public class MainActivity extends AppCompatActivity {
         mRollPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("mGuessNumber", Integer.toString(mGuessNumber));
-                Log.d("mRandomNumber", Integer.toString(mRandomNumber));
-                checkAnswer();
+                mGuessText.setText("Guess Number:");
+                mRoll.setText("Roll Dice");
             }
         });
 
@@ -69,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // go to score layout + activity
-                Intent intent = ScoreActivity.newIntent(MainActivity.this, mGuessNumber);
-
+                Intent intent = ScoreActivity.newIntent(MainActivity.this, mGuessNumber, mRandomNumber);
                 startActivity(intent);
             }
         });

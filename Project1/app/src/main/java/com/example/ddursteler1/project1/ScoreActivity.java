@@ -7,17 +7,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class ScoreActivity extends AppCompatActivity {
 
     private static final String GUESSED_NUMBER = "com.example.ddursteler1.project1.guessed_number";
+    private static final String ROLLED_NUMBER = "com.example.ddursteler1.project1.rolled_number";
 
     private int mGuessedNumber;
+    private int mRolledNumber;
     private TextView mGuesses;
+    private TextView mRolls;
 
 
-    public static Intent newIntent(Context packageContext, int mGuessNumber) {
+    public static Intent newIntent(Context packageContext, int mGuessNumber, int mRolledNumber) {
         Intent intent = new Intent(packageContext, ScoreActivity.class);
         intent.putExtra(GUESSED_NUMBER, mGuessNumber);
+        intent.putExtra(ROLLED_NUMBER, mRolledNumber);
         Log.d("mGuessNumber", Integer.toString(mGuessNumber));
         return intent;
     }
@@ -32,5 +38,12 @@ public class ScoreActivity extends AppCompatActivity {
 
         mGuesses = findViewById(R.id.guessed_numbers);
         mGuesses.setText(Integer.toString(mGuessedNumber));
+
+        mRolledNumber = getIntent().getIntExtra(ROLLED_NUMBER, 0);
+
+        mRolls = findViewById(R.id.rolled_numbers);
+        mRolls.setText(Integer.toString(mRolledNumber));
+
+
     }
 }

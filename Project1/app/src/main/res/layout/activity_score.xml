@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="left"
     tools:context=".ScoreActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:text="Guesses" />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/guesses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:text="Guesses:" />
 
-    <TextView
-        android:id="@+id/guessed_numbers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:text="No guesses yet"
-       />
+        <TextView
+            android:id="@+id/rolled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:text="Rolled Numbers:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:text="Correct:"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/guessed_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="24dp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/rolled_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="24dp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/correct"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="24dp"
+            android:text="@string/correct_answer"/>
+    </LinearLayout>
+
 </LinearLayout>

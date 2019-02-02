@@ -2,4 +2,5 @@
     <string name="app_name">Project1</string>
     <string name="correct_toast">You Guessed Correct!</string>
     <string name="incorrect_toast">You Guessed Wrong!</string>
+    <string name="correct_answer">We don\'t know!</string>
 </resources>
