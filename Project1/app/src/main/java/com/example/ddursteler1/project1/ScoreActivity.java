@@ -24,10 +24,14 @@ public class ScoreActivity extends AppCompatActivity {
     private TextView mCorrect;
 
 
+
     public static Intent newIntent(Context packageContext, int mGuessList, int mRollList) {
         Intent intent = new Intent(packageContext, ScoreActivity.class);
         intent.putExtra(GUESSED_LIST, mGuessList);
         intent.putExtra(ROLLED_LIST, mRollList);
+        //intent.putIntegerArrayListExtra(GUESSED_LIST, mGuessList);
+        //intent.putIntegerArrayListExtra(GUESSED_LIST, mRollList);
+
         return intent;
     }
 

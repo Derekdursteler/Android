@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mScoreButton;
     private int mGuessNumber = 0;
     private int mRandomNumber = 0;
-    List<Integer> guessList = new ArrayList<>();
-    List<Integer> rolledList = new ArrayList<>();
+    ArrayList<Integer> guessList = new ArrayList<>();
+    ArrayList<Integer> rolledList = new ArrayList<>();
 
 
     @Override
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 checkAnswer();
                 rolledList.add(mRandomNumber);
 
-                Log.d("EditText", rolledList.toString());
+                Log.d("InputNumbers", rolledList.toString());
             }
         });
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     mGuessText.setText("You guessed " + Integer.toString(mGuessNumber));
                     guessList.add(mGuessNumber);
 
-                    Log.d("EditText", guessList.toString());
+                    Log.d("RandomNumbers", guessList.toString());
                 }
                 return handled;
             }
