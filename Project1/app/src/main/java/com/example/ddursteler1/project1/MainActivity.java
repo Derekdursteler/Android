@@ -1,5 +1,6 @@
 package com.example.ddursteler1.project1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String RESET_WRONG = "com.example.ddursteler1.project1.reset_wrong";
+    private static final String RESET_CORRECT = "com.example.ddursteler1.project1.reset_correct";
+
     private EditText mInputNumber;
     private TextView mGuessText;
     private Button mRoll;
@@ -26,14 +30,25 @@ public class MainActivity extends AppCompatActivity {
     private Button mScoreButton;
     private int mGuessNumber = 0;
     private int mRandomNumber = 0;
+    private int mTotalCorrectCounter = 0;
+    private int mTotalWrongCounter = 0;
     ArrayList<Integer> guessList = new ArrayList<>();
     ArrayList<Integer> rolledList = new ArrayList<>();
 
+    public static Intent NewIntent(Context packageContext, int mResetWrong, int mResetCorrect) {
+        Intent intent = new Intent(packageContext, MainActivity.class);
+        intent.putExtra(RESET_WRONG, mResetWrong);
+        intent.putExtra(RESET_CORRECT, mResetCorrect);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mTotalCorrectCounter = getIntent().getIntExtra(RESET_CORRECT, 0);
+        mTotalWrongCounter = getIntent().getIntExtra(RESET_WRONG, 0);
 
         mGuessText = findViewById(R.id.guess_text);
 
@@ -82,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // go to score layout + activity
-                Intent intent = ScoreActivity.newIntent(MainActivity.this, mGuessNumber, mRandomNumber);
+                Intent intent = ScoreActivity.newIntent(MainActivity.this, mGuessNumber, mRandomNumber, mTotalCorrectCounter, mTotalWrongCounter);
                 startActivity(intent);
             }
         });
@@ -93,8 +108,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (mGuessNumber == mRandomNumber ) {
             messageResId = R.string.correct_toast;
+            mTotalCorrectCounter += 1;
         } else {
             messageResId = R.string.incorrect_toast;
+            mTotalWrongCounter += 1;
         }
         Toast toast = Toast.makeText( this, messageResId, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP, 0, 0);
