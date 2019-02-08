@@ -21,10 +21,6 @@ public class ScoreActivity extends AppCompatActivity {
     private static final String TOTAL_CORRECT = "com.example.ddursteler1.project1.total_correct";
     private static final String TOTAL_WRONG = "com.example.ddursteler1.project1.total_wrong";
 
-    private int mGuessList;
-    private int mRollList;
-    private int mTotalCorrectCounter;
-    private int mTotalWrongCounter;
     private Button mResetButton;
     private TextView mGuesses;
     private TextView mRolls;
@@ -46,6 +42,8 @@ public class ScoreActivity extends AppCompatActivity {
         return intent;
     }
 
+    private Numbers mNumbers= new Numbers( 0, 0, 0, 0);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,25 +53,25 @@ public class ScoreActivity extends AppCompatActivity {
         mResetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTotalCorrectCounter = 0;
-                mTotalWrongCounter = 0;
-                mTotalCorrect.setText(Integer.toString(mTotalCorrectCounter));
-                mTotalWrong.setText(Integer.toString(mTotalWrongCounter));
-                Intent intent = MainActivity.NewIntent(ScoreActivity.this, mTotalWrongCounter, mTotalCorrectCounter);
+                mNumbers.setmTotalWrongCounter(0);
+                mNumbers.setmTotalCorrectCounter(0);
+                mTotalCorrect.setText(Integer.toString(mNumbers.getmTotalCorrectCounter()));
+                mTotalWrong.setText(Integer.toString(mNumbers.getmTotalWrongCounter()));
+                Intent intent = MainActivity.NewIntent(ScoreActivity.this, mNumbers.getmTotalWrongCounter(), mNumbers.getmTotalCorrectCounter());
                 startActivity(intent);
             }
         });
 
-        mGuessList = getIntent().getIntExtra(GUESSED_LIST, 0);
-        mTotalCorrectCounter = getIntent().getIntExtra(TOTAL_CORRECT, 0);
-        mTotalWrongCounter = getIntent().getIntExtra(TOTAL_WRONG, 0);
-        mRollList = getIntent().getIntExtra(ROLLED_LIST, 0);
+        mNumbers.setmGuessList(getIntent().getIntExtra(GUESSED_LIST, 0));
+        mNumbers.setmTotalCorrectCounter(getIntent().getIntExtra(TOTAL_CORRECT, 0));
+        mNumbers.setmTotalWrongCounter(getIntent().getIntExtra(TOTAL_WRONG, 0));
+        mNumbers.setmRollList(getIntent().getIntExtra(ROLLED_LIST, 0));
 
         mGuesses = findViewById(R.id.guessed_numbers);
-        mGuesses.setText(Integer.toString(mGuessList));
+        mGuesses.setText(Integer.toString(mNumbers.getmGuessList()));
 
         mRolls = findViewById(R.id.rolled_numbers);
-        mRolls.setText(Integer.toString(mRollList));
+        mRolls.setText(Integer.toString(mNumbers.getmRollList()));
 
         mCorrect = findViewById(R.id.correct);
         mTotalCorrect = findViewById(R.id.totalcorrect);
@@ -82,14 +80,14 @@ public class ScoreActivity extends AppCompatActivity {
 
     }
     private void checkAnswer( ) {
-        if (mGuessList == mRollList ) {
+        if (mNumbers.getmGuessList() == mNumbers.getmRollList() ) {
             mCorrect.setText("Correct!");
-            mTotalCorrect.setText(Integer.toString(mTotalCorrectCounter));
-            mTotalWrong.setText(Integer.toString(mTotalWrongCounter));
+            mTotalCorrect.setText(Integer.toString(mNumbers.getmTotalCorrectCounter()));
+            mTotalWrong.setText(Integer.toString(mNumbers.getmTotalWrongCounter()));
         } else {
             mCorrect.setText("Incorrect!");
-            mTotalCorrect.setText(Integer.toString(mTotalCorrectCounter));
-            mTotalWrong.setText(Integer.toString(mTotalWrongCounter));
+            mTotalCorrect.setText(Integer.toString(mNumbers.getmTotalCorrectCounter()));
+            mTotalWrong.setText(Integer.toString(mNumbers.getmTotalWrongCounter()));
         }
     }
 }
