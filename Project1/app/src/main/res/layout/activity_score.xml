@@ -21,6 +21,8 @@
             android:layout_height="match_parent"
             android:padding="24dp"
             android:text="Last Guess:"
+            android:textSize="16sp"
+
             />
 
         <TextView
@@ -28,13 +30,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
-            android:text="Last Rolled:" />
+            android:text="Last Rolled:"
+            android:textSize="16sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
-            android:text="Status:" />
+            android:text="Status:"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
@@ -50,14 +54,16 @@
             android:layout_marginEnd="75dp"
             android:padding="24dp"
             android:paddingStart="75dp"
-            android:text="0" />
+            android:text="0"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/rolled_numbers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
-            android:text="0" />
+            android:text="0"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/correct"
@@ -66,7 +72,8 @@
             android:layout_marginEnd="30dp"
             android:gravity="right"
             android:padding="24dp"
-            android:text="@string/correct_answer" />
+            android:text="@string/correct_answer"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
@@ -80,7 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Total Guessed Right: " />
+            android:text="Total Guessed Right: "
+            android:textSize="16sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +100,8 @@
             android:id="@+id/totalcorrect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -105,7 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Total Guessed Wrong: " />
+            android:text="Total Guessed Wrong: "
+            android:textSize="16sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -117,7 +127,8 @@
             android:id="@+id/totalwrong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <LinearLayout
