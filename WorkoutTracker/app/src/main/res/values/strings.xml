@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">WorkoutTracker</string>
+    <string name="workout_title">Workout Plans</string>
+    <string name="weight_title">Weight (lbs)</string>
+    <string name="deadlift">Deadlift 1x5+</string>
+    <string name="pullups">Pull-Ups 3x12</string>
+    <string name="rows">Row 3x12</string>
+    <string name="hammerbiceps">Hammer Curls 4x12</string>
+    <string name="regbiceps">Bicep Curls 4x12</string>
 </resources>
