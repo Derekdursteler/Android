@@ -2,10 +2,10 @@ package com.example.ddursteler1.workouttracker;
 
 import android.support.v4.app.Fragment;
 
-public class WorkoutActivity extends SingleFragmentActivity {
+public class WorkoutListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        return new WorkoutFragment();
+        return new WorkoutListFragment();
     }
 }

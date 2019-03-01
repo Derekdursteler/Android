@@ -5,10 +5,7 @@ import java.util.UUID;
 
 public class WorkoutPlan {
     private UUID mId;
-    private String mDeadlift;
-    private String mPullUps;
-    private String mRows;
-    private String mBicepCurls;
+    private String mTitle;
     private boolean mCompleted;
     private Date mDate;
 
@@ -21,38 +18,13 @@ public class WorkoutPlan {
         return mId;
     }
 
-    public String getmDeadlift() {
-        return mDeadlift;
+    public String getmTitle() {
+        return mTitle;
     }
 
-    public void setmDeadlift(String mDeadlift) {
-        this.mDeadlift = mDeadlift;
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
-
-    public String getmPullUps() {
-        return mPullUps;
-    }
-
-    public void setmPullUps(String mPullUps) {
-        this.mPullUps = mPullUps;
-    }
-
-    public String getmRows() {
-        return mRows;
-    }
-
-    public void setmRows(String mRows) {
-        this.mRows = mRows;
-    }
-
-    public String getmBicepCurls() {
-        return mBicepCurls;
-    }
-
-    public void setmBicepCurls(String mBicepCurls) {
-        this.mBicepCurls = mBicepCurls;
-    }
-
     public boolean ismCompleted() {
         return mCompleted;
     }

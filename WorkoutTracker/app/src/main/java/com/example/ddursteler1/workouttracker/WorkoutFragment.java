@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class WorkoutFragment extends Fragment {
     private WorkoutPlan mWorkoutPlan;
-    private EditText mDeadlift;
+    private EditText mTitle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,8 @@ public class WorkoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_workout, container, false);
 
-        mDeadlift = v.findViewById(R.id.deadlift);
-        mDeadlift.addTextChangedListener(new TextWatcher() {
+        mTitle = v.findViewById(R.id.deadlift);
+        mTitle.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -32,7 +32,7 @@ public class WorkoutFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mWorkoutPlan.setmDeadlift(s.toString());
+                mWorkoutPlan.setmTitle(s.toString());
             }
 
             @Override
