@@ -20,9 +20,9 @@ public class WorkoutLab {
 
     private WorkoutLab(Context context) {
         mWorkoutPlans = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 1; i < 100; i++) {
             WorkoutPlan workoutPlan = new WorkoutPlan();
-            workoutPlan.setmTitle("Day #" + i+1 + " - Push");
+            workoutPlan.setmTitle("Day #" + i + " - Push");
             workoutPlan.setmCompleted(i % 2 == 1);
             mWorkoutPlans.add(workoutPlan);
         }

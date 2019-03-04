@@ -1,9 +1,11 @@
 package com.example.ddursteler1.workouttracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,12 +32,23 @@ public class WorkoutListFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI() {
         WorkoutLab workoutLab = WorkoutLab.get(getActivity());
         List<WorkoutPlan> workoutPlans = workoutLab.getWorkoutPlans();
 
-        mAdapter = new WorkoutAdapter(workoutPlans);
-        mWorkoutRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+            mAdapter = new WorkoutAdapter(workoutPlans);
+            mWorkoutRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
     private class WorkoutHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTitleTextView;
@@ -52,12 +65,12 @@ public class WorkoutListFragment extends Fragment {
         public void bind(WorkoutPlan workoutPlan) {
             mWorkoutPlan = workoutPlan;
             mTitleTextView.setText(mWorkoutPlan.getmTitle());
-            mDateTextView.setText(mWorkoutPlan.getmDate().toString());
+            mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mWorkoutPlan.getmDate()));
         }
         @Override
         public void onClick(View view) {
-            Toast.makeText(getActivity(),
-                    mWorkoutPlan.getmTitle() + " clicked!", Toast.LENGTH_SHORT).show();
+           Intent intent = WorkoutActivity.newIntent(getActivity(), mWorkoutPlan.getmId());
+           startActivity(intent);
         }
     }
     private class WorkoutAdapter extends RecyclerView.Adapter<WorkoutHolder> {
