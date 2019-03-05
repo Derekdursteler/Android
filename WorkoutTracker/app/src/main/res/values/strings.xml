@@ -7,4 +7,5 @@
     <string name="rows">Row 3x12</string>
     <string name="hammerbiceps">Hammer Curls 4x12</string>
     <string name="regbiceps">Bicep Curls 4x12</string>
+    <string name="complete">Completed Workout?</string>
 </resources>
