@@ -3,6 +3,8 @@ package com.example.ddursteler1.workouttracker;
 import java.util.Date;
 import java.util.UUID;
 
+// workout class for push
+
 public class WorkoutPlan {
     private UUID mId;
     private String mTitle;

@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+
+// This is the singleton
+
 public class WorkoutLab {
     private static WorkoutLab sWorkoutLab;
 
@@ -20,9 +23,20 @@ public class WorkoutLab {
 
     private WorkoutLab(Context context) {
         mWorkoutPlans = new ArrayList<>();
+        int x = 1;
         for (int i = 1; i < 100; i++) {
             WorkoutPlan workoutPlan = new WorkoutPlan();
-            workoutPlan.setmTitle("Day #" + i + " - Push");
+            if ( x > 3 ) {
+                x -= 3;
+            }
+            if ( x == 1 ) {
+                workoutPlan.setmTitle("Day #" + i + " - Push");
+            } else if ( x == 2 ) {
+                workoutPlan.setmTitle("Day #" + i + " - Pull");
+            } else if ( x == 3 ){
+                workoutPlan.setmTitle("Day #" + i + " - Legs");
+            }
+            x += 1;
             workoutPlan.setmCompleted(i % 2 == 1);
             mWorkoutPlans.add(workoutPlan);
         }
