@@ -23,7 +23,7 @@ public class WorkoutLab {
 
     private WorkoutLab(Context context) {
         mWorkoutPlans = new ArrayList<>();
-        int x = 1;
+       /* int x = 1;
         for (int i = 1; i < 100; i++) {
             WorkoutPlan workoutPlan = new WorkoutPlan();
             if ( x > 3 ) {
@@ -39,7 +39,11 @@ public class WorkoutLab {
             x += 1;
             workoutPlan.setmCompleted(i % 2 == 1);
             mWorkoutPlans.add(workoutPlan);
-        }
+        } */
+    }
+    public void addWorkout(WorkoutPlan workout) {
+        workout.setCount(1);
+        mWorkoutPlans.add(workout);
     }
 
     public List<WorkoutPlan> getWorkoutPlans() {

@@ -15,10 +15,12 @@ public class WorkoutPlan {
     private String mRows;
     private String mHammer;
     private String mBicep;
+    private int mCount = 1;
 
     public WorkoutPlan( ) {
         mId = UUID.randomUUID();
         mDate = new Date();
+        mTitle = "Day #  " + mCount + "- Push";
     }
 
     public UUID getmId() {
@@ -86,5 +88,8 @@ public class WorkoutPlan {
 
     public void setmBicep(String mBicep) {
         this.mBicep = mBicep;
+    }
+    public void setCount(Integer count) {
+        mCount += count;
     }
 }
