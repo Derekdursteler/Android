@@ -14,6 +14,7 @@ import android.widget.EditText;
 import java.util.List;
 import java.util.UUID;
 
+
 public class WorkoutFragment extends Fragment {
 
     private static final String ARG_WORKOUT_ID = "workout_id";
@@ -47,9 +48,8 @@ public class WorkoutFragment extends Fragment {
 
         WorkoutLab workoutLab = WorkoutLab.get(getActivity());
         List<WorkoutPlanPush> workoutPlans = workoutLab.getWorkoutPlans();
-        
+
         mWorkId = workoutPlans.size();
-        mWorkId -= 1;
         Log.v("Which workout: ", Integer.toString(mWorkId));
 
         View v = inflater.inflate(R.layout.fragment_workout, container, false);
@@ -155,3 +155,4 @@ public class WorkoutFragment extends Fragment {
         return v;
     }
 }
+

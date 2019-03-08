@@ -14,7 +14,6 @@ public class WorkoutLab {
 
     private List<WorkoutPlanPush> mWorkoutPlans;
 
-
     public static WorkoutLab get(Context context){
         if (sWorkoutLab == null ) {
             sWorkoutLab = new WorkoutLab(context);
@@ -24,6 +23,18 @@ public class WorkoutLab {
 
     private WorkoutLab(Context context) {
         mWorkoutPlans = new ArrayList<>();
+        for (int i = 0; i < 3; i++ ) {
+            WorkoutPlanPush workoutPlan = new WorkoutPlanPush();
+            if ( i == 0) {
+                workoutPlan.setmTitle("Workout #" + i + " - Pull");
+            } else if ( i == 1 ) {
+                workoutPlan.setmTitle("Workout #" + i + " - Push");
+            } else if ( i == 2 ) {
+                workoutPlan.setmTitle("Workout #" + i + " - Legs");
+            }
+            mWorkoutPlans.add(workoutPlan);
+
+        }
     }
 
     public void addWorkout(WorkoutPlanPush workout) {

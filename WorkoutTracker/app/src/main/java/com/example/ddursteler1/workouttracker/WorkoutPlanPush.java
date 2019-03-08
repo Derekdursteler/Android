@@ -32,7 +32,7 @@ public class WorkoutPlanPush {
     public WorkoutPlanPush( ) {
         mId = UUID.randomUUID();
         mDate = new Date();
-        mTitle = "Pull";
+        mTitle = "Workout";
     }
 
     public UUID getmId() {
