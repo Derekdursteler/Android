@@ -58,9 +58,9 @@ public class WorkoutListFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.new_workout:
-                WorkoutPlan workoutplan = new WorkoutPlan();
-                WorkoutLab.get(getActivity()).addWorkout(workoutplan);
-                Intent intent = WorkoutActivity.newIntent(getActivity(), workoutplan.getmId());
+                WorkoutPlanPush workoutPlanPush = new WorkoutPlanPush();
+                WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush);
+                Intent intent = WorkoutActivity.newIntent(getActivity(), workoutPlanPush.getmId());
                 startActivity(intent);
                 return true;
             default:
@@ -71,7 +71,7 @@ public class WorkoutListFragment extends Fragment {
 
     private void updateUI() {
         WorkoutLab workoutLab = WorkoutLab.get(getActivity());
-        List<WorkoutPlan> workoutPlans = workoutLab.getWorkoutPlans();
+        List<WorkoutPlanPush> workoutPlans = workoutLab.getWorkoutPlans();
 
         if (mAdapter == null) {
             mAdapter = new WorkoutAdapter(workoutPlans);
@@ -83,7 +83,7 @@ public class WorkoutListFragment extends Fragment {
     private class WorkoutHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTitleTextView;
         private TextView mDateTextView;
-        private WorkoutPlan mWorkoutPlan;
+        private WorkoutPlanPush mWorkoutPlanPush;
 
         public WorkoutHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_workout, parent, false));
@@ -92,20 +92,20 @@ public class WorkoutListFragment extends Fragment {
             mTitleTextView = itemView.findViewById(R.id.workout_title);
             mDateTextView = itemView.findViewById(R.id.workout_date);
         }
-        public void bind(WorkoutPlan workoutPlan) {
-            mWorkoutPlan = workoutPlan;
-            mTitleTextView.setText(mWorkoutPlan.getmTitle());
-            mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mWorkoutPlan.getmDate()));
+        public void bind(WorkoutPlanPush workoutPlan) {
+            mWorkoutPlanPush = workoutPlan;
+            mTitleTextView.setText(mWorkoutPlanPush.getmTitle());
+            mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mWorkoutPlanPush.getmDate()));
         }
         @Override
         public void onClick(View view) {
-           Intent intent = WorkoutActivity.newIntent(getActivity(), mWorkoutPlan.getmId());
+           Intent intent = WorkoutActivity.newIntent(getActivity(), mWorkoutPlanPush.getmId());
            startActivity(intent);
         }
     }
     private class WorkoutAdapter extends RecyclerView.Adapter<WorkoutHolder> {
-        private List<WorkoutPlan> mWorkoutPlans;
-        public WorkoutAdapter(List<WorkoutPlan> workoutPlans) {
+        private List<WorkoutPlanPush> mWorkoutPlans;
+        public WorkoutAdapter(List<WorkoutPlanPush> workoutPlans) {
             mWorkoutPlans = workoutPlans;
         }
         @Override
@@ -115,7 +115,7 @@ public class WorkoutListFragment extends Fragment {
         }
         @Override
         public void onBindViewHolder(WorkoutHolder holder, int position) {
-            WorkoutPlan workoutPlan = mWorkoutPlans.get(position);
+            WorkoutPlanPush workoutPlan = mWorkoutPlans.get(position);
             holder.bind(workoutPlan);
         }
         @Override

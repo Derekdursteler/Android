@@ -9,5 +9,17 @@
     <string name="regbiceps">Bicep Curls 4x12</string>
     <string name="complete">Completed Workout?</string>
 
+    <string name="bench">Bench Press 3x5</string>
+    <string name="overhead">Overhead Press 3x12</string>
+    <string name="incline">Incline Bench Press 3x12</string>
+    <string name="triceps">Tricep Pushdowns 6x12</string>
+    <string name="lats">Lateral Raises 6x20</string>
+
+    <string name="squat">Barbell Squats 3x5</string>
+    <string name="romanian">Romanian Deadlift 3x12</string>
+    <string name="legpress">Leg Press 3x12</string>
+    <string name="legcurl">Leg Curls 3x12</string>
+    <string name="calfraises">Calf Raises 3x12</string>
+
     <string name="new_workout">New Workout</string>
 </resources>

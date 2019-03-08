@@ -12,7 +12,8 @@ import java.util.UUID;
 public class WorkoutLab {
     private static WorkoutLab sWorkoutLab;
 
-    private List<WorkoutPlan> mWorkoutPlans;
+    private List<WorkoutPlanPush> mWorkoutPlans;
+
 
     public static WorkoutLab get(Context context){
         if (sWorkoutLab == null ) {
@@ -23,34 +24,17 @@ public class WorkoutLab {
 
     private WorkoutLab(Context context) {
         mWorkoutPlans = new ArrayList<>();
-       /* int x = 1;
-        for (int i = 1; i < 100; i++) {
-            WorkoutPlan workoutPlan = new WorkoutPlan();
-            if ( x > 3 ) {
-                x -= 3;
-            }
-            if ( x == 1 ) {
-                workoutPlan.setmTitle("Day #" + i + " - Push");
-            } else if ( x == 2 ) {
-                workoutPlan.setmTitle("Day #" + i + " - Pull");
-            } else if ( x == 3 ){
-                workoutPlan.setmTitle("Day #" + i + " - Legs");
-            }
-            x += 1;
-            workoutPlan.setmCompleted(i % 2 == 1);
-            mWorkoutPlans.add(workoutPlan);
-        } */
     }
-    public void addWorkout(WorkoutPlan workout) {
-        workout.setCount(1);
+
+    public void addWorkout(WorkoutPlanPush workout) {
         mWorkoutPlans.add(workout);
     }
 
-    public List<WorkoutPlan> getWorkoutPlans() {
+    public List<WorkoutPlanPush> getWorkoutPlans() {
         return mWorkoutPlans;
     }
-    public WorkoutPlan getWorkoutPlan(UUID id) {
-        for (WorkoutPlan workoutPlan : mWorkoutPlans) {
+    public WorkoutPlanPush getWorkoutPlan(UUID id) {
+        for (WorkoutPlanPush workoutPlan : mWorkoutPlans) {
             if (workoutPlan.getmId().equals(id)) {
                 return workoutPlan;
             }

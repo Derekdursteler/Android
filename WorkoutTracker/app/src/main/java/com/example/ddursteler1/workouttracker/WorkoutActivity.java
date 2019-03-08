@@ -2,6 +2,7 @@ package com.example.ddursteler1.workouttracker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import java.util.UUID;
@@ -15,6 +16,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
         intent.putExtra(EXTRA_WORKOUT_ID, workoutId);
         return intent;
     }
+
     @Override
     protected Fragment createFragment() {
         UUID workoutId = (UUID) getIntent().getSerializableExtra(EXTRA_WORKOUT_ID);
