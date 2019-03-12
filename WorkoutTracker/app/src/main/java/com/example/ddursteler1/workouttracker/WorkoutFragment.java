@@ -25,7 +25,6 @@ public class WorkoutFragment extends Fragment {
     private EditText mRows;
     private EditText mHammer;
     private EditText mBicep;
-    private Integer mWorkId;
 
     public static WorkoutFragment newInstance(UUID workoutId) {
         Bundle args = new Bundle();
@@ -49,16 +48,7 @@ public class WorkoutFragment extends Fragment {
         WorkoutLab workoutLab = WorkoutLab.get(getActivity());
         List<WorkoutPlanPush> workoutPlans = workoutLab.getWorkoutPlans();
 
-        mWorkId = workoutPlans.size();
-        Log.v("Which workout: ", Integer.toString(mWorkId));
-
         View v = inflater.inflate(R.layout.fragment_workout, container, false);
-
-        if (mWorkId % 2 == 0) {
-            v = inflater.inflate(R.layout.fragment_workout, container, false);
-        } else if (mWorkId % 2 == 1) {
-            v = inflater.inflate(R.layout.fragment_workout1, container, false);
-        }
 
         mDeadlift = v.findViewById(R.id.deadlift);
         mPullups = v.findViewById(R.id.pullups);
