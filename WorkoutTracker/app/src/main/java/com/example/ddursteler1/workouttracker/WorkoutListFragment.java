@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,10 +57,22 @@ public class WorkoutListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        WorkoutLab workoutLab = WorkoutLab.get(getActivity());
+        List<WorkoutPlanPush> workouts = workoutLab.getWorkoutPlans();
         switch (item.getItemId()) {
             case R.id.new_workout:
                 WorkoutPlanPush workoutPlanPush = new WorkoutPlanPush();
+                workoutPlanPush.setmTitle("Workout #" + (workouts.size()+1) + " - Pull");
                 WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush);
+
+                WorkoutPlanPush workoutPlanPush1 = new WorkoutPlanPush();
+                workoutPlanPush1.setmTitle("Workout #" +  (workouts.size()+1) + " - Push");
+                WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush1);
+
+                WorkoutPlanPush workoutPlanPush2 = new WorkoutPlanPush();
+                workoutPlanPush2.setmTitle("Workout #" +  (workouts.size()+1) + " - Legs");
+                WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush2);
+
                 Intent intent = WorkoutActivity.newIntent(getActivity(), workoutPlanPush.getmId());
                 startActivity(intent);
                 return true;

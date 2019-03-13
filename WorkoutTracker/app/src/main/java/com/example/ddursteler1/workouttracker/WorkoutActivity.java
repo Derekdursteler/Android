@@ -29,16 +29,26 @@ public class WorkoutActivity extends SingleFragmentActivity {
         WorkoutLab workoutLab = WorkoutLab.get(WorkoutActivity.this);
         List<WorkoutPlanPush> workouts = workoutLab.getWorkoutPlans();
 
-        //Log.d("createFragment UUID", workoutId.toString());
+        Log.d("Workout create UUID", workoutId.toString());
+        Log.d("Workout1 ID", workouts.get(workouts.size() - (workouts.size() - 1)).getmId().toString());
+        Log.d("Workout2 ID", workouts.get(workouts.size() - (workouts.size() - 2)).getmId().toString());
 
-        //Log.d("createFragment workouts.get(0)", workouts.get(0).getmId().toString());
-
-        if (workoutId.equals(workouts.get(0).getmId())) {
-            return WorkoutFragment.newInstance(workoutId);
-        } else if (workoutId.equals(workouts.get(1).getmId())) {
+        Log.d("Workout1", Integer.toString(workouts.size() - (workouts.size() - 1)));
+        Log.d("Workout2", Integer.toString(workouts.size() - (workouts.size() - 2)));
+        if (workoutId.equals(workouts.get(workouts.size() - (workouts.size() - 1)).getmId())) {
             return WorkoutFragment1.newInstance(workoutId);
-        } else {
+        } else if (workoutId.equals(workouts.get(workouts.size() - (workouts.size() - 2)).getmId())) {
             return WorkoutFragment2.newInstance(workoutId);
+        } else if (workouts.size() > 3 ) {
+            if (workoutId.equals(workouts.get(workouts.size() - 3).getmId())) {
+                return WorkoutFragment.newInstance(workoutId);
+            } else if (workoutId.equals(workouts.get(workouts.size() - 2).getmId())) {
+                return WorkoutFragment1.newInstance(workoutId);
+            } else {
+                return WorkoutFragment2.newInstance(workoutId);
+            }
+        } else {
+            return WorkoutFragment.newInstance(workoutId);
         }
     }
 }
