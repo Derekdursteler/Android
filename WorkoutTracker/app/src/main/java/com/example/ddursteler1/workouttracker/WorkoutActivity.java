@@ -24,17 +24,12 @@ public class WorkoutActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
+        setTitle(R.string.your_title);
         UUID workoutId = (UUID) getIntent().getSerializableExtra(EXTRA_WORKOUT_ID);
 
         WorkoutLab workoutLab = WorkoutLab.get(WorkoutActivity.this);
         List<WorkoutPlanPush> workouts = workoutLab.getWorkoutPlans();
 
-        Log.d("Workout create UUID", workoutId.toString());
-        Log.d("Workout1 ID", workouts.get(workouts.size() - (workouts.size() - 1)).getmId().toString());
-        Log.d("Workout2 ID", workouts.get(workouts.size() - (workouts.size() - 2)).getmId().toString());
-
-        Log.d("Workout1", Integer.toString(workouts.size() - (workouts.size() - 1)));
-        Log.d("Workout2", Integer.toString(workouts.size() - (workouts.size() - 2)));
         if (workoutId.equals(workouts.get(workouts.size() - (workouts.size() - 1)).getmId())) {
             return WorkoutFragment1.newInstance(workoutId);
         } else if (workoutId.equals(workouts.get(workouts.size() - (workouts.size() - 2)).getmId())) {

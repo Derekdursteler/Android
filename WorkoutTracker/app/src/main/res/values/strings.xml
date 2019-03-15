@@ -21,5 +21,7 @@
     <string name="legcurl">Leg Curls 3x12</string>
     <string name="calfraises">Calf Raises 3x12</string>
 
-    <string name="new_workout">New Workout</string>
+    <string name="new_workout">New Set of Workouts</string>
+
+    <string name="your_title">Simple Workout Log</string>
 </resources>

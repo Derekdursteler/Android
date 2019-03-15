@@ -6,6 +6,7 @@ public class WorkoutListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
+        setTitle(R.string.your_title);
         return new WorkoutListFragment();
     }
 }
