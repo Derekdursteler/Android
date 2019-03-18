@@ -89,7 +89,7 @@
 
     <EditText
         android:id="@+id/benchpress"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
@@ -102,7 +102,7 @@
 
     <EditText
         android:id="@+id/overhead"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
@@ -115,7 +115,7 @@
 
     <EditText
         android:id="@+id/incline"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
@@ -128,7 +128,7 @@
 
     <EditText
         android:id="@+id/triceps"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:minWidth="50dp"
@@ -140,7 +140,7 @@
 
     <EditText
         android:id="@+id/lats"
-        android:layout_width="40dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"

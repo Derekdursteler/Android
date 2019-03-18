@@ -30,10 +30,10 @@ public class WorkoutActivity extends SingleFragmentActivity {
         WorkoutLab workoutLab = WorkoutLab.get(WorkoutActivity.this);
         List<WorkoutPlanPush> workouts = workoutLab.getWorkoutPlans();
 
-        if (workoutId.equals(workouts.get(workouts.size() - (workouts.size() - 1)).getmId())) {
+        if (workoutId.equals(workouts.get(0).getmId())) {
+            return WorkoutFragment.newInstance(workoutId);
+        } else if (workoutId.equals(workouts.get(1).getmId())) {
             return WorkoutFragment1.newInstance(workoutId);
-        } else if (workoutId.equals(workouts.get(workouts.size() - (workouts.size() - 2)).getmId())) {
-            return WorkoutFragment2.newInstance(workoutId);
         } else if (workouts.size() > 3 ) {
             if (workoutId.equals(workouts.get(workouts.size() - 3).getmId())) {
                 return WorkoutFragment.newInstance(workoutId);
@@ -43,7 +43,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
                 return WorkoutFragment2.newInstance(workoutId);
             }
         } else {
-            return WorkoutFragment.newInstance(workoutId);
+            return WorkoutFragment2.newInstance(workoutId);
         }
     }
 }

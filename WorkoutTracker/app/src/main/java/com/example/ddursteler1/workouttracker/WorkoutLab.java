@@ -27,10 +27,13 @@ public class WorkoutLab {
             WorkoutPlanPush workoutPlan = new WorkoutPlanPush();
             if ( i == 1) {
                 workoutPlan.setmTitle("Workout #" + i + " - Pull");
+                workoutPlan.setmType("Pull");
             } else if ( i == 2 ) {
                 workoutPlan.setmTitle("Workout #" + i + " - Push");
+                workoutPlan.setmType("Push");
             } else if ( i == 3 ) {
                 workoutPlan.setmTitle("Workout #" + i + " - Legs");
+                workoutPlan.setmType("Legs");
             }
             mWorkoutPlans.add(workoutPlan);
 

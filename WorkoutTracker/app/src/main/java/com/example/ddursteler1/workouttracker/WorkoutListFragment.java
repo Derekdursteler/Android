@@ -63,14 +63,17 @@ public class WorkoutListFragment extends Fragment {
             case R.id.new_workout:
                 WorkoutPlanPush workoutPlanPush = new WorkoutPlanPush();
                 workoutPlanPush.setmTitle("Workout #" + (workouts.size()+1) + " - Pull");
+                workoutPlanPush.setmType("Pull");
                 WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush);
 
                 WorkoutPlanPush workoutPlanPush1 = new WorkoutPlanPush();
                 workoutPlanPush1.setmTitle("Workout #" +  (workouts.size()+1) + " - Push");
+                workoutPlanPush1.setmType("Push");
                 WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush1);
 
                 WorkoutPlanPush workoutPlanPush2 = new WorkoutPlanPush();
                 workoutPlanPush2.setmTitle("Workout #" +  (workouts.size()+1) + " - Legs");
+                workoutPlanPush2.setmType("Legs");
                 WorkoutLab.get(getActivity()).addWorkout(workoutPlanPush2);
 
                 Intent intent = WorkoutActivity.newIntent(getActivity(), workoutPlanPush.getmId());

@@ -9,6 +9,7 @@ public class WorkoutPlanPush {
     private UUID mId;
     private String mTitle;
     private Date mDate;
+    private String mType;
 
     private String mDeadlift;
     private String mPullups;
@@ -34,6 +35,12 @@ public class WorkoutPlanPush {
         mTitle = "Workout";
     }
 
+    public String getmType() {
+        return mType;
+    }
+    public void setmType(String mType) {
+        this.mType = mType;
+    }
     public UUID getmId() {
         return mId;
     }
@@ -45,7 +52,7 @@ public class WorkoutPlanPush {
     public void setmTitle(String mTitle) {
         this.mTitle = mTitle;
     }
-    
+
 
     public Date getmDate() {
         return mDate;
