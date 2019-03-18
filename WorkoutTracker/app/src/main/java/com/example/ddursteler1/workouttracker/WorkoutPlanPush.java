@@ -8,7 +8,6 @@ import java.util.UUID;
 public class WorkoutPlanPush {
     private UUID mId;
     private String mTitle;
-    private boolean mCompleted;
     private Date mDate;
 
     private String mDeadlift;
@@ -46,14 +45,7 @@ public class WorkoutPlanPush {
     public void setmTitle(String mTitle) {
         this.mTitle = mTitle;
     }
-
-    public boolean ismCompleted() {
-        return mCompleted;
-    }
-
-    public void setmCompleted(boolean mCompleted) {
-        this.mCompleted = mCompleted;
-    }
+    
 
     public Date getmDate() {
         return mDate;
