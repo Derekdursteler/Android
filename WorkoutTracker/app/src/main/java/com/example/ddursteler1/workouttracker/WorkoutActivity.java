@@ -30,18 +30,12 @@ public class WorkoutActivity extends SingleFragmentActivity {
         WorkoutLab workoutLab = WorkoutLab.get(WorkoutActivity.this);
         List<WorkoutPlanPush> workouts = workoutLab.getWorkoutPlans();
 
-        if (workoutId.equals(workouts.get(0).getmId())) {
+        Log.d("Workout getType", workoutLab.getWorkoutPlan(workoutId).getmType());
+
+        if (workoutLab.getWorkoutPlan(workoutId).getmType() == "Pull") {
             return WorkoutFragment.newInstance(workoutId);
-        } else if (workoutId.equals(workouts.get(1).getmId())) {
+        } else if (workoutLab.getWorkoutPlan(workoutId).getmType() == "Push") {
             return WorkoutFragment1.newInstance(workoutId);
-        } else if (workouts.size() > 3 ) {
-            if (workoutId.equals(workouts.get(workouts.size() - 3).getmId())) {
-                return WorkoutFragment.newInstance(workoutId);
-            } else if (workoutId.equals(workouts.get(workouts.size() - 2).getmId())) {
-                return WorkoutFragment1.newInstance(workoutId);
-            } else {
-                return WorkoutFragment2.newInstance(workoutId);
-            }
         } else {
             return WorkoutFragment2.newInstance(workoutId);
         }
