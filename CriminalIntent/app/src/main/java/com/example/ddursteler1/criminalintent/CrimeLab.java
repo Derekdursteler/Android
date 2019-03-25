@@ -43,14 +43,14 @@ public class CrimeLab {
     }
 
     public void deleteCrime(UUID crimeId) {
-        mDatabase.delete(CrimeTable.NAME, CrimeTable.Cols.UUID + " = ?", new String[] {crimeId.toString()});
+        mDatabase.delete(CrimeTable.NAME,
+                CrimeTable.Cols.UUID + " = ?",
+                 new String[] {crimeId.toString()});
     }
 
     public List<Crime> getCrimes() {
         List<Crime> crimes = new ArrayList<>();
-
         CrimeCursorWrapper cursor = queryCrimes(null, null);
-
         try {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
@@ -60,21 +60,17 @@ public class CrimeLab {
         } finally {
             cursor.close();
         }
-
         return crimes;
     }
 
     public Crime getCrime(UUID id) {
         CrimeCursorWrapper cursor = queryCrimes(
                 CrimeTable.Cols.UUID + " = ?",
-                new String[] { id.toString() }
-        );
-
+                new String[] { id.toString() });
         try {
             if (cursor.getCount() == 0) {
                 return null;
             }
-
             cursor.moveToFirst();
             return cursor.getCrime();
         } finally {
@@ -94,12 +90,12 @@ public class CrimeLab {
     private CrimeCursorWrapper queryCrimes(String whereClause, String[] whereArgs) {
         Cursor cursor = mDatabase.query(
                 CrimeTable.NAME,
-                null, // columns - null selects all columns
+                null,
                 whereClause,
                 whereArgs,
-                null, // groupBy
-                null, // having
-                null  // orderBy
+                null,
+                null,
+                null
         );
 
         return new CrimeCursorWrapper(cursor);
